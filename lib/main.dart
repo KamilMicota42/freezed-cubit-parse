@@ -39,7 +39,13 @@ class MyHomePage extends StatelessWidget {
             return state.when(
               initial: () => const CircularProgressIndicator(),
               loading: () => const CircularProgressIndicator(),
-              loaded: (loaded) => Text(loaded.toString()),
+              loaded: (loaded) => Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(loaded.title.toString()),
+                  Text(loaded.id.toString()),
+                ],
+              ),
               error: () => const Text('Error'),
             );
           },
