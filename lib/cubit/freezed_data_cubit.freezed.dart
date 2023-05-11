@@ -20,7 +20,7 @@ mixin _$FreezedDataState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Map<String, dynamic> data) loaded,
+    required TResult Function(PostModel data) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$FreezedDataState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Map<String, dynamic> data)? loaded,
+    TResult? Function(PostModel data)? loaded,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$FreezedDataState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Map<String, dynamic> data)? loaded,
+    TResult Function(PostModel data)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Map<String, dynamic> data) loaded,
+    required TResult Function(PostModel data) loaded,
     required TResult Function() error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Map<String, dynamic> data)? loaded,
+    TResult? Function(PostModel data)? loaded,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Map<String, dynamic> data)? loaded,
+    TResult Function(PostModel data)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -238,7 +238,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Map<String, dynamic> data) loaded,
+    required TResult Function(PostModel data) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -249,7 +249,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Map<String, dynamic> data)? loaded,
+    TResult? Function(PostModel data)? loaded,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -260,7 +260,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Map<String, dynamic> data)? loaded,
+    TResult Function(PostModel data)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -317,7 +317,9 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, dynamic> data});
+  $Res call({PostModel data});
+
+  $PostModelCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -334,25 +336,28 @@ class __$$_LoadedCopyWithImpl<$Res>
   }) {
     return _then(_$_Loaded(
       null == data
-          ? _value._data
+          ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as PostModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PostModelCopyWith<$Res> get data {
+    return $PostModelCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(final Map<String, dynamic> data) : _data = data;
+  const _$_Loaded(this.data);
 
-  final Map<String, dynamic> _data;
   @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
+  final PostModel data;
 
   @override
   String toString() {
@@ -364,12 +369,11 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -382,7 +386,7 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Map<String, dynamic> data) loaded,
+    required TResult Function(PostModel data) loaded,
     required TResult Function() error,
   }) {
     return loaded(data);
@@ -393,7 +397,7 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Map<String, dynamic> data)? loaded,
+    TResult? Function(PostModel data)? loaded,
     TResult? Function()? error,
   }) {
     return loaded?.call(data);
@@ -404,7 +408,7 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Map<String, dynamic> data)? loaded,
+    TResult Function(PostModel data)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -453,9 +457,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements FreezedDataState {
-  const factory _Loaded(final Map<String, dynamic> data) = _$_Loaded;
+  const factory _Loaded(final PostModel data) = _$_Loaded;
 
-  Map<String, dynamic> get data;
+  PostModel get data;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -499,7 +503,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Map<String, dynamic> data) loaded,
+    required TResult Function(PostModel data) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -510,7 +514,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Map<String, dynamic> data)? loaded,
+    TResult? Function(PostModel data)? loaded,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -521,7 +525,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Map<String, dynamic> data)? loaded,
+    TResult Function(PostModel data)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
